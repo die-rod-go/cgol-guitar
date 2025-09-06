@@ -16,7 +16,7 @@ public:
                 bool alive = board[y][x];
 
                 // survive on 2/3, born on 3
-                if ((board[y][x] && neighbors == 2) || neighbors == 3)
+                if ((alive && neighbors == 2) || neighbors == 3)
                     next[y][x] = true;
                 else
                     next[y][x] = false;
