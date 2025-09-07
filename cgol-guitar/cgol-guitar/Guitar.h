@@ -133,7 +133,7 @@ public:
 	void play_notes()
 	{
 		// keeps track of the highest fretted not on each string 
-		// (0=low_e through 6=high_e)
+		// (0=low_e through 5=high_e)
 		std::array<int, 6> highest_notes{};
 
 		for(int fret = NUM_FRETS - 1; fret > 0; fret--)
@@ -152,7 +152,7 @@ public:
 		// go through each string and play the corresponding wav file
 		// pitched up according to highest_note value
 
-		// string sample names
+		// string sample names blah blah i should store these somewhere else
 		std::string string_names[6] = { "E_LOW", "A", "D", "G", "B", "E_HIGH" };
 
 		for (int s = 0; s < 6; s++) {
@@ -167,6 +167,7 @@ public:
 			ma_sound_seek_to_pcm_frame(&voices[s], 0);
 			ma_sound_start(&voices[s]);
 			std::this_thread::sleep_for(std::chrono::milliseconds(50));
+			// uncomment for debugging
 			//std::getchar();
 		}
 
